@@ -71,7 +71,7 @@
 <hr>
 
 ### 3. DB 설계
-![erd](https://user-images.githubusercontent.com/45421117/202832751-b1db63c6-ca6a-471e-8825-946c1b21c866.png)
+![erd](https://github.com/Baeg-won/Baeg-won-Mall/assets/45421117/ac538264-c799-485a-b483-a4cc98a5709c)
 
 <hr>
 
