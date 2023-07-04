@@ -90,7 +90,7 @@
 <summary>메인 페이지</summary>
 
 #### 홈페이지
-![home](https://user-images.githubusercontent.com/45421117/200153100-c0f5c46c-0217-49df-aeab-071078654daf.png)
+![home](https://github.com/Baeg-won/Baeg-won-Mall/assets/45421117/69e75e42-62f6-4532-b23e-3f4741a2fae8)
 </details>
 
 <hr>
