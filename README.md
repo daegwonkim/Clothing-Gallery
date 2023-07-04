@@ -88,8 +88,6 @@
 ### 6. 실행 화면
 <details>
 <summary>메인 페이지</summary>
-
-#### 홈페이지
 ![home](https://github.com/Baeg-won/Baeg-won-Mall/assets/45421117/69e75e42-62f6-4532-b23e-3f4741a2fae8)
 </details>
 
