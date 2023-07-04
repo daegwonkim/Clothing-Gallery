@@ -81,7 +81,7 @@
 
 ### 5. 개발 내용
 1. [[Baeg-won Mall] 0. 프로젝트 개요](https://daegwonkim.tistory.com/455)
-2. [[Baeg-won Mall] 1. 메인 페이지 구현](https://daegwonkim.tistory.com/456)
+2. [[Baeg-won Mall] 1. 메인 페이지 구현](https://daegwonkim.tistory.com/457)
 
 <hr>
 
