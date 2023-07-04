@@ -80,7 +80,8 @@
 <hr>
 
 ### 5. 개발 내용
-1. [[스프링부트 게시판] 메인페이지 만들기](https://daegwonkim.tistory.com/249)
+1. [[Baeg-won Mall] 0. 프로젝트 개요](https://daegwonkim.tistory.com/455)
+2. [[Baeg-won Mall] 1. 메인 페이지 구현](https://daegwonkim.tistory.com/456)
 
 <hr>
 
