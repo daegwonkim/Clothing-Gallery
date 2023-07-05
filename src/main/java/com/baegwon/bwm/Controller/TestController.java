@@ -18,10 +18,10 @@ public class TestController {
     @Autowired
     private ProductRepository productRepository;
 
+    ModelMapper modelMapper = new ModelMapper();
+
     @GetMapping("/test/{type}")
     public List<ProductDto> test(@PathVariable String type) {
-        ModelMapper modelMapper = new ModelMapper();
-
         List<Product> productList;
         if (type.equals("new")) {
             productList = productRepository.findNewArrivals();
@@ -29,6 +29,15 @@ public class TestController {
             productList = productRepository.findMostPopular();
         }
 
+        List<ProductDto> productDtoList = productList.stream().
+                map(product -> modelMapper.map(product, ProductDto.class)).collect(Collectors.toList());
+
+        return productDtoList;
+    }
+
+    @GetMapping("/test")
+    public List<ProductDto> test() {
+        List<Product> productList = productRepository.findAll();
         List<ProductDto> productDtoList = productList.stream().
                 map(product -> modelMapper.map(product, ProductDto.class)).collect(Collectors.toList());
 
