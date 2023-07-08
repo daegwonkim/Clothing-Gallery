@@ -90,9 +90,11 @@
 <details>
 <summary>메인 페이지</summary>
 
-![Home](https://github.com/Baeg-won/Baeg-won-Mall/assets/45421117/69e75e42-62f6-4532-b23e-3f4741a2fae8)
+![Home](https://github.com/Baeg-won/Baeg-won-Mall/assets/45421117/e8945291-679d-4913-b2bb-3dfef5c67aa8)
 ![Shop](https://github.com/Baeg-won/Baeg-won-Mall/assets/45421117/cbd2e8d3-14eb-4d5e-bb49-e7a11e7b81f4)
 ![New Arrivals](https://github.com/Baeg-won/Baeg-won-Mall/assets/45421117/5b1d3025-e844-4dce-b938-87d6562ffd93)
+![Brands](https://github.com/Baeg-won/Baeg-won-Mall/assets/45421117/badedc5f-205b-4e1b-b0d3-cda6c3d4b461)
+![Brands](https://github.com/Baeg-won/Baeg-won-Mall/assets/45421117/38422a7b-1162-4665-ae2f-79c597d1ed16)
 </details>
 
 <hr>
