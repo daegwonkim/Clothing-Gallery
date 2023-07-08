@@ -83,6 +83,7 @@
 1. [[Baeg-won Mall] 0. 프로젝트 개요](https://daegwonkim.tistory.com/455)
 2. [[Baeg-won Mall] 1. 메인 페이지 구현](https://daegwonkim.tistory.com/457)
 3. [[Baeg-won Mall] 2. SHOP 페이지 구현](https://daegwonkim.tistory.com/458)
+4. [[Baeg-won Mall] 3. BRANDS 페이지 구현](https://daegwonkim.tistory.com/459)
 
 <hr>
 
