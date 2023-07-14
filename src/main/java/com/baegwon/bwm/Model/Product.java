@@ -16,6 +16,8 @@ public class Product {
     private String name;
     private int price;
     private String url;
+
+    private String category;
     private String brand;
 
     private int sales;
@@ -24,13 +26,5 @@ public class Product {
     @PrePersist
     public void registerDate() {
         this.register_date = LocalDateTime.now();
-    }
-
-    @Builder
-    public Product(String name, int price, String url, int sales) {
-        this.name = name;
-        this.price = price;
-        this.url = url;
-        this.sales = sales;
     }
 }

@@ -35,12 +35,25 @@ public class TestController {
         return productDtoList;
     }
 
-    @GetMapping("/test")
-    public List<ProductDto> test() {
-        List<Product> productList = productRepository.findAll();
+    @GetMapping("/test2/{category}")
+    public List<ProductDto> test2(@PathVariable String category) {
+        List<Product> productList = null;
+        if (category.equals("all")) {
+            productList = productRepository.findAll();
+        } else {
+            productList = productRepository.findProductByCategory(category);
+        }
+
         List<ProductDto> productDtoList = productList.stream().
                 map(product -> modelMapper.map(product, ProductDto.class)).collect(Collectors.toList());
 
         return productDtoList;
+    }
+
+    @GetMapping("/getBrand/{category}")
+    public List<String> getBrand(@PathVariable String category) {
+        List<String> brandList = productRepository.findBrandByCategory(category);
+
+        return brandList;
     }
 }
