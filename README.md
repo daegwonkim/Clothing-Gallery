@@ -84,6 +84,7 @@
 2. [[Baeg-won Mall] 1. 메인 페이지 구현](https://daegwonkim.tistory.com/457)
 3. [[Baeg-won Mall] 2. SHOP 페이지 구현](https://daegwonkim.tistory.com/458)
 4. [[Baeg-won Mall] 3. BRANDS 페이지 구현](https://daegwonkim.tistory.com/459)
+5. [[Baeg-won Mall] 3. CLOTHING, FOOTWEAR, ACCESSORIES 페이지 구현](https://daegwonkim.tistory.com/461)
 
 <hr>
 
@@ -96,6 +97,7 @@
 ![New Arrivals](https://github.com/Baeg-won/Baeg-won-Mall/assets/45421117/5b1d3025-e844-4dce-b938-87d6562ffd93)
 ![Brands](https://github.com/Baeg-won/Baeg-won-Mall/assets/45421117/badedc5f-205b-4e1b-b0d3-cda6c3d4b461)
 ![Brands](https://github.com/Baeg-won/Baeg-won-Mall/assets/45421117/38422a7b-1162-4665-ae2f-79c597d1ed16)
+![Clothing, Footwear, Accessories](https://github.com/Baeg-won/Baeg-won-Mall/assets/45421117/36326887-efbf-458d-aca1-caad63f8d213)
 </details>
 
 <hr>
