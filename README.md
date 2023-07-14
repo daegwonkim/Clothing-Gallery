@@ -84,7 +84,7 @@
 2. [[Baeg-won Mall] 1. 메인 페이지 구현](https://daegwonkim.tistory.com/457)
 3. [[Baeg-won Mall] 2. SHOP 페이지 구현](https://daegwonkim.tistory.com/458)
 4. [[Baeg-won Mall] 3. BRANDS 페이지 구현](https://daegwonkim.tistory.com/459)
-5. [[Baeg-won Mall] 3. CLOTHING, FOOTWEAR, ACCESSORIES 페이지 구현](https://daegwonkim.tistory.com/461)
+5. [[Baeg-won Mall] 4. CLOTHING, FOOTWEAR, ACCESSORIES 페이지 구현](https://daegwonkim.tistory.com/461)
 
 <hr>
 
