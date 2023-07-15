@@ -2,6 +2,7 @@ package com.baegwon.bwm.Model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.ColumnDefault;
 
 import java.time.LocalDateTime;
 
@@ -21,6 +22,13 @@ public class Product {
     private String brand;
 
     private int sales;
+
+    @ColumnDefault("false")
+    private boolean isDiscount;
+
+    @ColumnDefault("'0'")
+    private int discountPrice;
+
     private LocalDateTime register_date;
 
     @PrePersist

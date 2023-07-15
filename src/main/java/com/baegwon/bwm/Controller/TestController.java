@@ -40,6 +40,8 @@ public class TestController {
         List<Product> productList = null;
         if (category.equals("all")) {
             productList = productRepository.findAll();
+        } else if (category.equals("sale")) {
+            productList = productRepository.findDiscountProduct();
         } else {
             productList = productRepository.findProductByCategory(category);
         }
@@ -48,12 +50,5 @@ public class TestController {
                 map(product -> modelMapper.map(product, ProductDto.class)).collect(Collectors.toList());
 
         return productDtoList;
-    }
-
-    @GetMapping("/getBrand/{category}")
-    public List<String> getBrand(@PathVariable String category) {
-        List<String> brandList = productRepository.findBrandByCategory(category);
-
-        return brandList;
     }
 }

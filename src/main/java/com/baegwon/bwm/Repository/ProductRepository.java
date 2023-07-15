@@ -19,6 +19,6 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     @Query(value = "SELECT * FROM product WHERE category = :category", nativeQuery = true)
     List<Product> findProductByCategory(String category);
 
-    @Query(value = "SELECT DISTINCT(brand) FROM product WHERE category = :category", nativeQuery = true)
-    List<String> findBrandByCategory(String category);
+    @Query(value = "SELECT * FROM product WHERE isDiscount = 1", nativeQuery = true)
+    List<Product> findDiscountProduct();
 }

@@ -20,5 +20,7 @@ public class ProductDto {
     private String category;
     private String brand;
     private int sales;
+    private boolean isDiscount;
+    private int discountPrice;
     private LocalDateTime register_date;
 }
