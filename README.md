@@ -99,6 +99,7 @@
 ![Brands](https://github.com/Baeg-won/Baeg-won-Mall/assets/45421117/badedc5f-205b-4e1b-b0d3-cda6c3d4b461)
 ![Brands](https://github.com/Baeg-won/Baeg-won-Mall/assets/45421117/38422a7b-1162-4665-ae2f-79c597d1ed16)
 ![Clothing, Footwear, Accessories](https://github.com/Baeg-won/Baeg-won-Mall/assets/45421117/36326887-efbf-458d-aca1-caad63f8d213)
+![Sale, Contact](https://github.com/Baeg-won/Baeg-won-Mall/assets/45421117/b7c6b7df-ee0e-4006-affc-e019164a7678)
 </details>
 
 <hr>
