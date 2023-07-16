@@ -1,10 +1,14 @@
 package com.baegwon.bwm.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -15,24 +19,39 @@ public class Product {
     private Long id;
 
     private String name;
+    private String thumbnail;
     private int price;
-    private String url;
 
     private String category;
     private String brand;
 
     private int sales;
 
+    @Column(columnDefinition = "TEXT")
+    private String description;
+
+    @Column(name = "is_discount")
     @ColumnDefault("false")
     private boolean isDiscount;
 
+    @Column(name = "discount_price")
     @ColumnDefault("'0'")
     private int discountPrice;
 
-    private LocalDateTime register_date;
+    @OneToMany(mappedBy = "product")
+    private List<Size> sizes = new ArrayList<>();
+
+    @OneToMany(mappedBy = "product")
+    private List<Image> images = new ArrayList<>();
+
+    @OneToMany(mappedBy = "product")
+    private List<Feature> features = new ArrayList<>();
+
+    @Column(name = "register_date")
+    private LocalDateTime registerDate;
 
     @PrePersist
     public void registerDate() {
-        this.register_date = LocalDateTime.now();
+        this.registerDate = LocalDateTime.now();
     }
 }
