@@ -106,7 +106,7 @@
 <details>
 <summary>상품 페이지</summary>
 
-![ezgif com-video-to-gif](https://github.com/Baeg-won/Baeg-won-Mall/assets/45421117/7b17c5b6-9c57-4f6a-b2ce-c34dd7e8789a)
+![Detail](https://github.com/Baeg-won/Baeg-won-Mall/assets/45421117/7b17c5b6-9c57-4f6a-b2ce-c34dd7e8789a)
 </details>
 
 
