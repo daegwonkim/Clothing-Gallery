@@ -1,6 +1,6 @@
 package com.baegwon.bwm.Controller;
 
-import com.baegwon.bwm.Model.Dto.SizeDto;
+import com.baegwon.bwm.Model.Dto.ProductDetailDTO;
 import com.baegwon.bwm.Model.Product;
 import com.baegwon.bwm.Model.Dto.ProductDto;
 import com.baegwon.bwm.Model.Size;
@@ -10,6 +10,7 @@ import com.baegwon.bwm.Repository.ProductRepository;
 import com.baegwon.bwm.Repository.SizeRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -53,7 +54,7 @@ public class TestController {
     public List<ProductDto> test2(@PathVariable String category) {
         List<Product> productList = null;
         if (category.equals("all")) {
-            productList = productRepository.findAll();
+            productList = productRepository.findAll(Sort.by(Sort.Direction.DESC, "registerDate"));
         } else if (category.equals("sale")) {
             productList = productRepository.findDiscountProduct();
         } else {
@@ -67,32 +68,29 @@ public class TestController {
     }
 
     @GetMapping("/test3/{product_id}")
-    public List<SizeDto> test3(@PathVariable Long product_id) {
-        List<Size> sizeList = sizeRepository.findSizeByProductId(product_id);
-        List<SizeDto> sizeDtoList = sizeList.stream()
-                .map(size -> modelMapper.map(size, SizeDto.class)).collect(Collectors.toList());
-
-        return sizeDtoList;
-    }
-
-    @GetMapping("/test4/{product_id}")
-    public List<String> test4(@PathVariable Long product_id) {
-        return imageRepository.findImageByProductId(product_id);
-    }
-
-    @GetMapping("/test5/{product_id}")
-    public ProductDto test5(@PathVariable Long product_id) throws Exception {
+    public ProductDetailDTO test3(@PathVariable Long product_id) throws Exception {
+        // 1. Get Product
         Product product = productRepository.findById(product_id).orElseThrow(() -> {
             throw new IllegalStateException("상품 정보가 없습니다.");
         });
 
-        ProductDto productDto = modelMapper.map(product, ProductDto.class);
+        ProductDetailDTO productDetailDTO = new ProductDetailDTO();
+        productDetailDTO.setProduct(product);
 
-        return productDto;
-    }
+        // 2. Get Product Sizes
+        List<Size> sizes = sizeRepository.findSizeByProductId(product_id);
+        productDetailDTO.setSizes(sizes);
 
-    @GetMapping("/test6/{product_id}")
-    public List<String> test6(@PathVariable Long product_id) {
-        return featureRepository.findFeatureByProductId(product_id);
+        // 3. Get Product Images
+        productDetailDTO.setImages(imageRepository.findImageByProductId(product_id));
+
+        // 4. Get Product Features
+        productDetailDTO.setFeatures(featureRepository.findFeatureByProductId(product_id));
+
+        // 5. Get Prev and Next Product
+        productDetailDTO.setPrevProduct(productRepository.findPrevProductById(product_id));
+        productDetailDTO.setNextProduct(productRepository.findNextProductById(product_id));
+
+        return productDetailDTO;
     }
 }

@@ -38,12 +38,15 @@ public class Product {
     @ColumnDefault("'0'")
     private int discountPrice;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "product")
     private List<Size> sizes = new ArrayList<>();
 
+    @JsonIgnore
     @OneToMany(mappedBy = "product")
     private List<Image> images = new ArrayList<>();
 
+    @JsonIgnore
     @OneToMany(mappedBy = "product")
     private List<Feature> features = new ArrayList<>();
 
