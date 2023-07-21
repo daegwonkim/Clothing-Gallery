@@ -1,7 +1,5 @@
 package com.baegwon.bwm.Model.Dto;
 
-import com.baegwon.bwm.Model.Feature;
-import com.baegwon.bwm.Model.Image;
 import com.baegwon.bwm.Model.Product;
 import com.baegwon.bwm.Model.Size;
 import lombok.AllArgsConstructor;
@@ -16,7 +14,7 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ProductDetailDTO {
+public class ProductDetailDto {
 
     private Product product;
     private List<Size> sizes = new ArrayList<>();

@@ -1,7 +1,6 @@
 package com.baegwon.bwm.Model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
@@ -49,6 +48,10 @@ public class Product {
     @JsonIgnore
     @OneToMany(mappedBy = "product")
     private List<Feature> features = new ArrayList<>();
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "product")
+    private List<ProductCart> productCarts = new ArrayList<>();
 
     @Column(name = "register_date")
     private LocalDateTime registerDate;
