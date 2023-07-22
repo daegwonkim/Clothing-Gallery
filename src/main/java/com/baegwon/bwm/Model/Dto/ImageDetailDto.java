@@ -1,18 +1,19 @@
 package com.baegwon.bwm.Model.Dto;
 
-import com.baegwon.bwm.Model.Product;
+import com.baegwon.bwm.Model.Image;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ProductDetailDto {
+public class ImageDetailDto {
 
-    private Product product;
-    private Long prevProduct;
-    private Long nextProduct;
+    List<String> images = new ArrayList<>();
 }

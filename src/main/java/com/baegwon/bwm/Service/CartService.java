@@ -2,6 +2,7 @@ package com.baegwon.bwm.Service;
 
 import com.baegwon.bwm.Model.Cart;
 import com.baegwon.bwm.Model.Dto.AddToCartDto;
+import com.baegwon.bwm.Model.Product;
 import com.baegwon.bwm.Model.ProductCart;
 import com.baegwon.bwm.Repository.CartRepository;
 import com.baegwon.bwm.Repository.CustomerRepository;
@@ -26,13 +27,17 @@ public class CartService {
     private ProductRepository productRepository;
 
     @Transactional
-    public void add(AddToCartDto addToCartDto) {
+    public void addCartItem(AddToCartDto addToCartDto) {
+        Product product = productRepository.findById(addToCartDto.getProductId()).orElseThrow(() -> {
+            throw new IllegalStateException("상품 정보가 없습니다.");
+        });
+
         ProductCart productCart = ProductCart.builder()
                 .cart(cartRepository.findByCustomerId(addToCartDto.getCustomerId()))
-                .product(productRepository.findById(addToCartDto.getProductId()).orElseThrow(() -> {
-                            throw new IllegalStateException("상품 정보가 없습니다."); }))
+                .product(product)
                 .size(addToCartDto.getSize())
                 .quantity(addToCartDto.getQuantity())
+                .totalPrice(product.getPrice() * addToCartDto.getQuantity())
                 .build();
 
         productCartRepository.save(productCart);
@@ -44,5 +49,10 @@ public class CartService {
         List<ProductCart> productCartList = productCartRepository.findByCartId(cart.getId());
 
         return productCartList;
+    }
+
+    @Transactional
+    public void deleteCartItem(Long id) {
+        productCartRepository.deleteById(id);
     }
 }

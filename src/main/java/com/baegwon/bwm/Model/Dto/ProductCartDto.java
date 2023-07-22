@@ -15,7 +15,9 @@ import lombok.Setter;
 @NoArgsConstructor
 public class ProductCartDto {
 
+    private Long id;
     private String size;
     private int quantity;
     private Product product;
+    private int totalPrice;
 }

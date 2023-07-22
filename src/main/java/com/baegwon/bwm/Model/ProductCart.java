@@ -16,6 +16,9 @@ public class ProductCart {
     private String size;
     private int quantity;
 
+    @Column(name = "total_price")
+    private int totalPrice;
+
     @ManyToOne
     @JoinColumn(name = "product_id")
     private Product product;
