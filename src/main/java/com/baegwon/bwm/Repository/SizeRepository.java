@@ -10,6 +10,5 @@ import java.util.List;
 @Repository
 public interface SizeRepository extends JpaRepository<Size, Long> {
 
-    @Query(value = "SELECT * FROM size WHERE product_id = :product_id", nativeQuery = true)
-    List<Size> findSizeByProductId(Long product_id);
+    List<Size> findByProductId(Long product_id);
 }

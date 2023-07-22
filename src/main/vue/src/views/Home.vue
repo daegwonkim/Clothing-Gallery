@@ -71,7 +71,7 @@ export default {
   methods: {
     // 신규 및 인기 상품 데이터 불러오기
     getData(need_data, type) {
-      this.$axios.get(`/test/${type}`).then((res) => {
+      this.$axios.get(`/product/get/slider/item/${type}`).then((res) => {
         res.data.forEach((element) => {
           need_data.push({
             id: element.id,

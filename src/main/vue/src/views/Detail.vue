@@ -115,13 +115,13 @@ export default {
 
   methods: {
     getProductDetail() {
-      this.$axios.get(`/product/get/detail/${productId}`).then((res) => {
+      this.$axios.get(`/product/get/detail/${this.productId}`).then((res) => {
         this.product = res.data.product;
         this.prevProductId = res.data.prevProduct;
         this.nextProductId = res.data.nextProduct;
       });
 
-      this.$axios.get(`/size/get/detail/${productId}`).then((res) => {
+      this.$axios.get(`/size/get/detail/${this.productId}`).then((res) => {
         res.data.forEach(element => {
           this.productSizes.push({
             size: element.size,
@@ -131,7 +131,8 @@ export default {
         });
       });
 
-      this.$axios.get(`/image/get/detail/${productId}`).then((res) => {
+      this.$axios.get(`/image/get/detail/${this.productId}`).then((res) => {
+        console.log(res);
         res.data.forEach(element => {
           this.productImages.push({
             path: element,
@@ -140,9 +141,13 @@ export default {
         });
       });
 
-      this.$axios.get(`/feature/get/detail/${productId}`).then((res) => {
-        this.productFeatures.push(element);
+      this.$axios.get(`/feature/get/detail/${this.productId}`).then((res) => {
+        res.data.forEach(element => {
+          this.productFeatures.push(element);
+        });
       });
+
+      console.log(this.product, this.productSizes, this.productImages, this.productFeatures);
     },
 
     switchingImage(i) {
@@ -173,7 +178,7 @@ export default {
     },
 
     addToCart() {
-      this.$axios.post("/test4", {customerId: 1, productId: this.productId, size: this.selectSize, quantity: this.inputQuantity}).then((res) => {
+      this.$axios.post("/cart/add", {customerId: 1, productId: this.productId, size: this.selectSize, quantity: this.inputQuantity}).then((res) => {
         alert("Successfully put it in cart");
       });
     }

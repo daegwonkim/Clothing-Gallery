@@ -52,7 +52,7 @@ public class CartService {
     }
 
     @Transactional
-    public void deleteCartItem(Long id) {
-        productCartRepository.deleteById(id);
+    public void deleteCartItem(Long productCart_id) {
+        productCartRepository.deleteById(productCart_id);
     }
 }
