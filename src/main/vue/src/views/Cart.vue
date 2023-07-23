@@ -17,11 +17,17 @@
               </div>
             </div>
             <div class="d-flex mx-16">
-              <button class="btn-quantity_control" @click="quantityControl('down', i)">
+              <button class="btn-quantity_control" @click="quantityControl('down', i)" :disabled="item.quantity <= 1">
                 <font-awesome-icon icon="fa-solid fa-minus" size="2xs" />
               </button>
-              <input class="input-quantity_control" type="number" :value="item.quantity" ref="inputQuantity" @input="quantityControl('input', i)">
-              <button class="btn-quantity_control" @click="quantityControl('up', i)">
+              <input 
+                class="input-quantity_control"
+                type="number" 
+                :value="item.quantity" 
+                ref="inputQuantity" 
+                @input="quantityControl('input', i)"
+              >
+              <button class="btn-quantity_control" @click="quantityControl('up', i)" :disabled="item.quantity >= 99">
                 <font-awesome-icon icon="fa-solid fa-plus" size="2xs" />
               </button>
             </div>
@@ -197,8 +203,8 @@ export default {
   text-decoration: underline;
 }
 
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
+.input-quantity_control::-webkit-outer-spin-button,
+.input-quantity_control::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }

@@ -47,43 +47,66 @@
         <!-- Product Info End -->
 
         <!-- Select Size -->
-        <div>
+        <div class="mb-12">
           <div>Size</div>
-          <v-select
-            v-model="selectSize"
-            class="select-select_size"
-            label="Select size"
-            :items="productSizes"
-            item-text="size"
-            item-disabled="disable"
-            outlined
-            dense
-            :menu-props="{ bottom: true, offsetY: true }"
-          ></v-select>
+          <v-tooltip left color="error" v-model="showSizeTooltip">
+            <template v-slot:activator="{ attrs }">
+              <v-select
+                v-model="selectSize"
+                class="select-select_size"
+                label="Select size"
+                :items="productSizes"
+                item-text="size"
+                item-disabled="disable"
+                outlined
+                dense
+                :menu-props="{ bottom: true, offsetY: true }"
+                hide-details
+                v-bind="attrs"
+              ></v-select>
+            </template>
+            <span>Select size</span>
+          </v-tooltip>
         </div>
         <!-- Select Size End -->
 
         <!-- Input Quantity -->
         <div class="mt-n6">
           <div>Quantity</div>
-          <v-text-field
-            v-model="inputQuantity"
-            class="v-text-field-input_quantity"
-            outlined
-            dense
-            suffix="EA"
-          >
-          </v-text-field>
+          <v-tooltip left color="error" v-model="showQuantityTooltip">
+            <template v-slot:activator="{ attrs }">
+              <input
+                v-model="inputQuantity"
+                class="input-quantity__detail"
+                type="number"
+                min="1"
+                v-bind="attrs"
+              >
+            </template>
+            <span>Enter a minimum amount of 1</span>
+          </v-tooltip>
         </div>
         <!-- Input Quantity End -->
 
         <div class="d-flex mt-n4 div-add_to_btn_wrapper">
-          <v-btn class="btn-add_to_cart" elevation="0" min-width="227" min-height="43" @click="addToCart">Add to Cart</v-btn>
+          <v-tooltip left color="success" v-model="showSuccessTooltip">
+            <template v-slot:activator="{ attrs }">
+              <v-btn 
+                class="btn-add_to_cart" 
+                elevation="0" 
+                min-width="227" 
+                min-height="43" 
+                @click="addToCart"
+                v-bind="attrs"
+              >Add to Cart</v-btn>
+            </template>
+            <span>Successfully add!</span>
+          </v-tooltip>
           <v-btn class="btn-add_to_wish" elevation="0" max-width="43" min-width="43" min-height="43" outlined>
             <font-awesome-icon icon="fa-regular fa-heart" size="xl" style="color: #808080;" />
           </v-btn>
         </div>
-      </div>
+      </div> 
     </div>
   </v-container>
 </template>
@@ -103,7 +126,10 @@ export default {
       inputQuantity: 1,
       selectSize: "",
       readMoreActive: true,
-      readMoreText: "Read More"
+      readMoreText: "Read More",
+      showSizeTooltip: false,
+      showQuantityTooltip: false,
+      showSuccessTooltip: false,
     };
   },
 
@@ -132,7 +158,6 @@ export default {
       });
 
       this.$axios.get(`/image/get/detail/${this.productId}`).then((res) => {
-        console.log(res);
         res.data.forEach(element => {
           this.productImages.push({
             path: element,
@@ -146,8 +171,6 @@ export default {
           this.productFeatures.push(element);
         });
       });
-
-      console.log(this.product, this.productSizes, this.productImages, this.productFeatures);
     },
 
     switchingImage(i) {
@@ -178,8 +201,30 @@ export default {
     },
 
     addToCart() {
+      if(this.selectSize == "" || this.inputQuantity < 1) {
+        if(this.selectSize == "") {
+          this.showSizeTooltip = true;
+
+          setTimeout(() => {
+            this.showSizeTooltip = false;
+          }, 5000);
+        }
+        if(this.inputQuantity < 1) {
+          this.showQuantityTooltip = true;
+
+          setTimeout(() => {
+            this.showQuantityTooltip = false;
+          }, 5000);
+        }
+        return;
+      }
+
       this.$axios.post("/cart/add", {customerId: 1, productId: this.productId, size: this.selectSize, quantity: this.inputQuantity}).then((res) => {
-        alert("Successfully put it in cart");
+        this.showSuccessTooltip = true;
+
+        setTimeout(() => {
+          this.showSuccessTooltip = false;
+        }, 5000);
       });
     }
   },
@@ -275,9 +320,13 @@ export default {
   width: 280px;
 }
 
-.v-text-field-input_quantity {
+.input-quantity__detail {
   border-radius: 0px;
   width: 80px;
+  height: 40px;
+  padding: 0 1px 0 12px;
+  border: 1px solid black;
+  margin-bottom: 30px;
 }
 
 .div-add_to_btn_wrapper > button {
