@@ -1,7 +1,7 @@
-# Baeg-won Mall
+# Baeg-won Clothing Gallery
 
 ### 1. 프로젝트 개요
-- 프로젝트 명: Baeg-won Mall(BWM)
+- 프로젝트 명: Baeg-won Clothing Gallery
 - 개발 인원: 1명(Baeg-won)
 - 개발 기간: 2023.07.01 ~
 - 주요 기능
@@ -80,13 +80,13 @@
 <hr>
 
 ### 5. 개발 내용
-1. [[Baeg-won Mall] 0. 프로젝트 개요](https://daegwonkim.tistory.com/455)
-2. [[Baeg-won Mall] 1. 메인 페이지 구현](https://daegwonkim.tistory.com/457)
-3. [[Baeg-won Mall] 2. SHOP 페이지 구현](https://daegwonkim.tistory.com/458)
-4. [[Baeg-won Mall] 3. BRANDS 페이지 구현](https://daegwonkim.tistory.com/459)
-5. [[Baeg-won Mall] 4. CLOTHING, FOOTWEAR, ACCESSORIES 페이지 구현](https://daegwonkim.tistory.com/461)
-6. [[Baeg-won Mall] 5. SALE, CONTACT 페이지 구현](https://daegwonkim.tistory.com/462)
-7. [[Baeg-won Mall] 6. DETAIL 페이지 구현](https://daegwonkim.tistory.com/463)
+1. [[Baeg-won Clothing Gallery] 0. 프로젝트 개요](https://daegwonkim.tistory.com/455)
+2. [[Baeg-won Clothing Gallery] 1. 메인 페이지 구현](https://daegwonkim.tistory.com/457)
+3. [[Baeg-won Clothing Gallery] 2. SHOP 페이지 구현](https://daegwonkim.tistory.com/458)
+4. [[Baeg-won Clothing Gallery] 3. BRANDS 페이지 구현](https://daegwonkim.tistory.com/459)
+5. [[Baeg-won Clothing Gallery] 4. CLOTHING, FOOTWEAR, ACCESSORIES 페이지 구현](https://daegwonkim.tistory.com/461)
+6. [[Baeg-won Clothing Gallery] 5. SALE, CONTACT 페이지 구현](https://daegwonkim.tistory.com/462)
+7. [[Baeg-won Clothing Gallery] 6. DETAIL 페이지 구현](https://daegwonkim.tistory.com/463)
 
 <hr>
 
@@ -109,6 +109,11 @@
 ![Detail](https://github.com/Baeg-won/Baeg-won-Mall/assets/45421117/7b17c5b6-9c57-4f6a-b2ce-c34dd7e8789a)
 </details>
 
+<details>
+<summary>장바구니 페이지</summary>
+
+![Detail](https://github.com/Baeg-won/Baeg-won-Mall/assets/45421117/7b17c5b6-9c57-4f6a-b2ce-c34dd7e8789a)
+</details>
 
 <hr>
 
