@@ -9,6 +9,9 @@ import com.baegwon.bwm.Service.ProductService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -49,7 +52,14 @@ public class ProductApiController {
 
     // Detail.vue
     @GetMapping("/product/get/detail/{product_id}")
-    public ProductDetailDto detail(@PathVariable Long product_id) throws Exception {
+    public ProductDetailDto detail(@PathVariable Long product_id) {
         return productService.getProductDetail(product_id);
+    }
+
+    @DeleteMapping("product/delete/{product_id}")
+    public ResponseEntity<?> delete(@PathVariable Long product_id) {
+        productService.deleteProduct(product_id);
+
+        return new ResponseEntity<>(1, HttpStatus.OK);
     }
 }

@@ -26,7 +26,7 @@ public class Customer {
     private int membershipLevel;
     private String status;
 
-    @OneToOne(mappedBy = "customer")
+    @OneToOne(mappedBy = "customer", cascade = CascadeType.REMOVE)
     private Cart cart;
 
     @Column(name = "register_date")

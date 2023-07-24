@@ -54,4 +54,9 @@ public class ProductService {
         return new ProductDetailDto(product, productRepository.findPrevProductById(product_id),
                 productRepository.findNextProductById(product_id));
     }
+
+    @Transactional
+    public void deleteProduct(Long product_id) {
+        productRepository.deleteById(product_id);
+    }
 }

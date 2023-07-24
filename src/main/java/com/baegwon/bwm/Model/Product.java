@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -37,20 +39,20 @@ public class Product {
     @ColumnDefault("'0'")
     private int discountPrice;
 
-    @JsonIgnore
     @OneToMany(mappedBy = "product")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private List<Size> sizes = new ArrayList<>();
 
-    @JsonIgnore
     @OneToMany(mappedBy = "product")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private List<Image> images = new ArrayList<>();
 
-    @JsonIgnore
     @OneToMany(mappedBy = "product")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private List<Feature> features = new ArrayList<>();
 
-    @JsonIgnore
     @OneToMany(mappedBy = "product")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private List<ProductCart> productCarts = new ArrayList<>();
 
     @Column(name = "register_date")
