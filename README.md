@@ -87,6 +87,7 @@
 5. [[Baeg-won Clothing Gallery] 4. CLOTHING, FOOTWEAR, ACCESSORIES 페이지 구현](https://daegwonkim.tistory.com/461)
 6. [[Baeg-won Clothing Gallery] 5. SALE, CONTACT 페이지 구현](https://daegwonkim.tistory.com/462)
 7. [[Baeg-won Clothing Gallery] 6. DETAIL 페이지 구현](https://daegwonkim.tistory.com/463)
+8. [[Baeg-won Clothing Gallery] 7. Cart 페이지 구현](https://daegwonkim.tistory.com/465)
 
 <hr>
 
@@ -112,7 +113,7 @@
 <details>
 <summary>장바구니 페이지</summary>
 
-![Detail](https://github.com/Baeg-won/Baeg-won-Mall/assets/45421117/7b17c5b6-9c57-4f6a-b2ce-c34dd7e8789a)
+![Cart](https://github.com/Baeg-won/Baeg-won-Clothing-Gallery/assets/45421117/78c1a42b-73be-40ae-97db-df273986f4e9)
 </details>
 
 <hr>
