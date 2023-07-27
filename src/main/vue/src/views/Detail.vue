@@ -102,8 +102,17 @@
             </template>
             <span>Successfully add!</span>
           </v-tooltip>
-          <v-btn class="btn-add_to_wish" elevation="0" max-width="43" min-width="43" min-height="43" outlined>
-            <font-awesome-icon icon="fa-regular fa-heart" size="xl" style="color: #808080;" />
+          <v-btn 
+            class="btn-add_to_wish" 
+            elevation="0" 
+            max-width="43"
+            min-width="43" 
+            min-height="43" 
+            outlined
+            @click="toggleWish"
+           >
+            <font-awesome-icon v-if="!isWish" icon="fa-regular fa-heart" size="xl" style="color: #888888;" />
+            <font-awesome-icon v-if="isWish" icon="fa-solid fa-heart" size="xl" style="color: #888888;" />
           </v-btn>
         </div>
       </div> 
@@ -130,6 +139,7 @@ export default {
       showSizeTooltip: false,
       showQuantityTooltip: false,
       showSuccessTooltip: false,
+      isWish: false,
     };
   },
 
@@ -170,6 +180,10 @@ export default {
         res.data.forEach(element => {
           this.productFeatures.push(element);
         });
+      });
+
+      this.$axios.get(`/wish/get/${this.productId}/state/1`).then((res) => {
+        this.isWish = res.data;
       });
     },
 
@@ -226,6 +240,18 @@ export default {
           this.showSuccessTooltip = false;
         }, 5000);
       });
+    },
+
+    toggleWish() {
+      if(this.isWish) {
+        this.$axios.delete(`/wish/delete/${this.productId}/1`).then((res) => {
+          this.isWish = false;
+        });
+      } else {
+        this.$axios.post("/wish/add", {customerId: 1, productId: this.productId}).then((res) => {
+          this.isWish = true;
+        });
+      }
     }
   },
 };

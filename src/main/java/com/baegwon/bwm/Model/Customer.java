@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -28,6 +30,9 @@ public class Customer {
 
     @OneToOne(mappedBy = "customer", cascade = CascadeType.REMOVE)
     private Cart cart;
+
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.REMOVE)
+    private List<Wish> wish = new ArrayList<>();
 
     @Column(name = "register_date")
     private LocalDateTime registerDate;

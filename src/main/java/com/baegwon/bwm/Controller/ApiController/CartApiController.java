@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@RequestMapping("cart")
 @RestController
 public class CartApiController {
 
@@ -23,7 +24,7 @@ public class CartApiController {
     private ModelMapper modelMapper;
 
     // Detail.vue
-    @PostMapping("/cart/add")
+    @PostMapping("/add")
     public ResponseEntity<?> add(@RequestBody AddToCartDto addToCartDto) {
         cartService.addCartItem(addToCartDto);
 
@@ -31,7 +32,7 @@ public class CartApiController {
     }
 
     // Cart.vue
-    @GetMapping("/cart/get/item/{customer_id}")
+    @GetMapping("/get/item/{customer_id}")
     public List<ProductCartDto> getCartItems(@PathVariable Long customer_id) {
         List<ProductCart> productCartList = cartService.getCartItems(customer_id);
         List<ProductCartDto> productCartDtoList = productCartList.stream()
@@ -41,7 +42,7 @@ public class CartApiController {
     }
 
     // Cart.vue
-    @DeleteMapping("/cart/delete/item/{productCart_id}")
+    @DeleteMapping("/delete/item/{productCart_id}")
     public void deleteCartItem(@PathVariable Long productCart_id) {
         cartService.deleteCartItem(productCart_id);
     }

@@ -55,6 +55,10 @@ public class Product {
     @OnDelete(action = OnDeleteAction.CASCADE)
     private List<ProductCart> productCarts = new ArrayList<>();
 
+    @OneToMany(mappedBy = "product")
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private List<Wish> wish = new ArrayList<>();
+
     @Column(name = "register_date")
     private LocalDateTime registerDate;
 

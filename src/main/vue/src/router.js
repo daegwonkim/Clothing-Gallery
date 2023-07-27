@@ -11,6 +11,7 @@ import Sale from "./views/Sale"
 import Contact from "./views/Contact"
 import Detail from "./views/Detail"
 import Cart from "./views/Cart"
+import Wish from "./views/Wish"
 
 Vue.use(VueRouter);
 
@@ -28,6 +29,7 @@ const router = new VueRouter({
         {path: "/contact", component: Contact},
         {path: "/detail", component: Detail, name: "detail"},
         {path: "/cart", component: Cart},
+        {path: "/wish", component: Wish},
     ],
     scrollBehavior() {
         return { x: 0, y: 0 }

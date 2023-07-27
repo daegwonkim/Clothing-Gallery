@@ -10,11 +10,13 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@RequestMapping("size")
 @RestController
 public class SizeApiController {
 
@@ -25,7 +27,7 @@ public class SizeApiController {
     private ModelMapper modelMapper;
 
     // Detail.vue
-    @GetMapping("/size/get/detail/{product_id}")
+    @GetMapping("/get/detail/{product_id}")
     public List<SizeDetailDto> detail(@PathVariable Long product_id) {
         List<Size> sizeList = sizeService.getSizeDetail(product_id);
 

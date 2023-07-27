@@ -33,8 +33,8 @@
       </v-btn> -->
 
       <!-- Wish -->
-      <router-link class="a-quick_menu" to="/">
-        <v-icon>mdi-heart</v-icon>
+      <router-link class="a-quick_menu" to="/wish">
+        <font-awesome-icon icon="fa-solid fa-heart" size="xl" />
       </router-link>
 
       <!-- Cart -->

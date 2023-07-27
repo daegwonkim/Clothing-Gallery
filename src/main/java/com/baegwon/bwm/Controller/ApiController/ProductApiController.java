@@ -8,17 +8,18 @@ import com.baegwon.bwm.Repository.ProductRepository;
 import com.baegwon.bwm.Service.ProductService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@RequestMapping("product")
 @RestController
 public class ProductApiController {
 
@@ -29,7 +30,7 @@ public class ProductApiController {
     private ModelMapper modelMapper;
 
     // Home.vue
-    @GetMapping("/product/get/slider/item/{type}")
+    @GetMapping("/get/slider/item/{type}")
     public List<ProductDto> slider(@PathVariable String type) {
         List<Product> productList = productService.getSliderItems(type);
 
@@ -40,7 +41,7 @@ public class ProductApiController {
     }
 
     // List.vue
-    @GetMapping("/product/get/list/item/{category}")
+    @GetMapping("/get/list/item/{category}")
     public List<ProductDto> list(@PathVariable String category) {
         List<Product> productList = productService.getListItems(category);
 
@@ -51,15 +52,26 @@ public class ProductApiController {
     }
 
     // Detail.vue
-    @GetMapping("/product/get/detail/{product_id}")
+    @GetMapping("/get/detail/{product_id}")
     public ProductDetailDto detail(@PathVariable Long product_id) {
         return productService.getProductDetail(product_id);
     }
 
-    @DeleteMapping("product/delete/{product_id}")
+    @DeleteMapping("/delete/{product_id}")
     public ResponseEntity<?> delete(@PathVariable Long product_id) {
         productService.deleteProduct(product_id);
 
         return new ResponseEntity<>(1, HttpStatus.OK);
+    }
+
+    // Wish.vue
+    @GetMapping("/get/wish-list")
+    public List<ProductDto> wish(@RequestParam(value = "productId") List<Long> productIdList) {
+        List<Product> productList = productService.getProductForWish(productIdList);
+
+        List<ProductDto> productDtoList = productList.stream()
+                .map(product -> modelMapper.map(product, ProductDto.class)).collect(Collectors.toList());
+
+        return productDtoList;
     }
 }

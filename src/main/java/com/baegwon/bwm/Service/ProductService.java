@@ -5,6 +5,8 @@ import com.baegwon.bwm.Model.Product;
 import com.baegwon.bwm.Model.Size;
 import com.baegwon.bwm.Repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -58,5 +60,10 @@ public class ProductService {
     @Transactional
     public void deleteProduct(Long product_id) {
         productRepository.deleteById(product_id);
+    }
+
+    @Transactional(readOnly = true)
+    public List<Product> getProductForWish(List<Long> productIdList) {
+        return productRepository.findAllById(productIdList);
     }
 }
