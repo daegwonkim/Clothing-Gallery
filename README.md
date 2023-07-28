@@ -88,7 +88,7 @@
 6. [[Baeg-won Clothing Gallery] 5. SALE, CONTACT 페이지 구현](https://daegwonkim.tistory.com/462)
 7. [[Baeg-won Clothing Gallery] 6. DETAIL 페이지 구현](https://daegwonkim.tistory.com/463)
 8. [[Baeg-won Clothing Gallery] 7. CART 페이지 구현](https://daegwonkim.tistory.com/465)
-9. [[Baeg-won Clothing Gallery] 7. WISH 페이지 구현](https://daegwonkim.tistory.com/466)
+9. [[Baeg-won Clothing Gallery] 8. WISH 페이지 구현](https://daegwonkim.tistory.com/467)
 
 <hr>
 
