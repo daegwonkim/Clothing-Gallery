@@ -132,13 +132,17 @@ export default {
       productImages: [],
       productFeatures: [],
       curShowImageIndex: 0,
+
       inputQuantity: 1,
       selectSize: "",
+
       readMoreActive: true,
       readMoreText: "Read More",
+
       showSizeTooltip: false,
       showQuantityTooltip: false,
       showSuccessTooltip: false,
+
       isWish: false,
     };
   },
@@ -233,23 +237,29 @@ export default {
         return;
       }
 
-      this.$axios.post("/cart/add", {customerId: 1, productId: this.productId, size: this.selectSize, quantity: this.inputQuantity}).then((res) => {
-        this.showSuccessTooltip = true;
+      this.$axios.get(`/product/get/${this.productId}`).then((product) => {
+        this.$axios.post("/cart/add", {customerId: 1, product: product.data, size: this.selectSize, quantity: this.inputQuantity}).then((res) => {
+          this.showSuccessTooltip = true;
 
-        setTimeout(() => {
-          this.showSuccessTooltip = false;
-        }, 5000);
-      });
+          setTimeout(() => {
+            this.showSuccessTooltip = false;
+          }, 5000);
+        });
+      })
     },
 
     toggleWish() {
       if(this.isWish) {
-        this.$axios.delete(`/wish/delete/${this.productId}/1`).then((res) => {
+        this.$axios.delete(`/wish/delete/item/${this.productId}/1`).then((res) => {
           this.isWish = false;
         });
       } else {
-        this.$axios.post("/wish/add", {customerId: 1, productId: this.productId}).then((res) => {
-          this.isWish = true;
+        this.$axios.get("/customer/get/1").then((customer) => {
+          this.$axios.get(`/product/get/${this.productId}`).then((product) => {
+            this.$axios.post("/wish/add", {customer: customer.data, product: product.data}).then((res) => {
+              this.isWish = true;
+            });
+          });
         });
       }
     }

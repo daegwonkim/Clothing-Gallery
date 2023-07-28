@@ -20,6 +20,13 @@ public class ProductService {
     private ProductRepository productRepository;
 
     @Transactional(readOnly = true)
+    public Product getProduct(Long product_id) {
+        return productRepository.findById(product_id).orElseThrow(() -> {
+            throw new IllegalStateException("상품 정보를 찾을 수 없습니다.");
+        });
+    }
+
+    @Transactional(readOnly = true)
     public List<Product> getSliderItems(String type) {
         List<Product> productList;
 

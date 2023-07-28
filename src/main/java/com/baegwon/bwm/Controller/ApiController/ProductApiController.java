@@ -29,6 +29,11 @@ public class ProductApiController {
     @Autowired
     private ModelMapper modelMapper;
 
+    @GetMapping("/get/{product_id}")
+    public Product getProduct(@PathVariable Long product_id) {
+        return productService.getProduct(product_id);
+    }
+
     // Home.vue
     @GetMapping("/get/slider/item/{type}")
     public List<ProductDto> slider(@PathVariable String type) {

@@ -18,19 +18,11 @@ public class WishService {
     @Autowired
     private WishRepository wishRepository;
 
-    @Autowired
-    private CustomerRepository customerRepository;
-
-    @Autowired
-    private ProductRepository productRepository;
-
     @Transactional
     public void addWish(WishDto wishDto) {
         Wish wish = Wish.builder()
-                        .customer(customerRepository.findById(wishDto.getCustomerId()).orElseThrow(() -> {
-                            throw new IllegalStateException("사용자 정보를 찾을 수 없습니다."); }))
-                        .product(productRepository.findById(wishDto.getProductId()).orElseThrow(() -> {
-                            throw new IllegalStateException("상품 정보를 찾을 수 없습니다."); }))
+                        .customer(wishDto.getCustomer())
+                        .product(wishDto.getProduct())
                         .build();
 
         wishRepository.save(wish);

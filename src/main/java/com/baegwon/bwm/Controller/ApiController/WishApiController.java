@@ -37,7 +37,8 @@ public class WishApiController {
         return wishService.isWish(customer_id, product_id);
     }
 
-    @DeleteMapping("/delete/{product_id}/{customer_id}")
+    // Wish.vue
+    @DeleteMapping("/delete/item/{product_id}/{customer_id}")
     public ResponseEntity<?> delete(@PathVariable Long product_id, @PathVariable Long customer_id) {
         wishService.delete(customer_id, product_id);
 

@@ -23,21 +23,14 @@ public class CartService {
     @Autowired
     private CartRepository cartRepository;
 
-    @Autowired
-    private ProductRepository productRepository;
-
     @Transactional
     public void addCartItem(AddToCartDto addToCartDto) {
-        Product product = productRepository.findById(addToCartDto.getProductId()).orElseThrow(() -> {
-            throw new IllegalStateException("상품 정보가 없습니다.");
-        });
-
         ProductCart productCart = ProductCart.builder()
                 .cart(cartRepository.findByCustomerId(addToCartDto.getCustomerId()))
-                .product(product)
+                .product(addToCartDto.getProduct())
                 .size(addToCartDto.getSize())
                 .quantity(addToCartDto.getQuantity())
-                .totalPrice(product.getPrice() * addToCartDto.getQuantity())
+                .totalPrice(addToCartDto.getProduct().getPrice() * addToCartDto.getQuantity())
                 .build();
 
         productCartRepository.save(productCart);
