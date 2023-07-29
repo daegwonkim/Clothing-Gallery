@@ -43,7 +43,7 @@
       </router-link>
 
       <!-- Profile -->
-      <router-link class="a-quick_menu" to="/">
+      <router-link class="a-quick_menu" to="/profile">
         <font-awesome-icon icon="user" size="lg" />
       </router-link>
       <!-- Quick Menu End -->
