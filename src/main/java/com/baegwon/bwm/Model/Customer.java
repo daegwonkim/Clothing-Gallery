@@ -1,5 +1,6 @@
 package com.baegwon.bwm.Model;
 
+import com.baegwon.bwm.Model.Embedded.Address;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -22,11 +23,13 @@ public class Customer {
     private String nickname;
 
     private String phone;
-    private String address;
 
     @Column(name = "membership_level")
     private int membershipLevel;
     private String status;
+
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.REMOVE)
+    private List<Address> address = new ArrayList<>();
 
     @OneToOne(mappedBy = "customer", cascade = CascadeType.REMOVE)
     private Cart cart;
