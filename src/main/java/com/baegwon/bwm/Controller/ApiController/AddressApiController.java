@@ -53,7 +53,7 @@ public class AddressApiController {
         return new ResponseEntity<>(1, HttpStatus.OK);
     }
 
-    @PostMapping("/edit")
+    @PutMapping("/edit")
     public ResponseEntity<?> editAddress(@RequestBody AddressDto addressDto) {
         addressService.editAddress(addressDto);
 
