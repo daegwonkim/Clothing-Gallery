@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RequestMapping("feature")
+@RequestMapping("/api/feature")
 @RestController
 public class FeatureApiController {
 

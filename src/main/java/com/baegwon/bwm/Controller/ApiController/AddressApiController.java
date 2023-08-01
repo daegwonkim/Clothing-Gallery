@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@RequestMapping("address")
+@RequestMapping("/api/address")
 @RestController
 public class AddressApiController {
 

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequestMapping("wish")
+@RequestMapping("/api/wish")
 @RestController
 public class WishApiController {
 

@@ -81,8 +81,8 @@ export default {
 
   methods: {
     getWishList() {
-      this.$axios.get("/wish/get/item/1").then((productIdList) => {
-        this.$axios.get(`/product/get/wish-list?productId=${productIdList.data}`).then((res) => {
+      this.$axios.get("/api/wish/get/item/1").then((productIdList) => {
+        this.$axios.get(`/api/product/get/wish-list?productId=${productIdList.data}`).then((res) => {
           res.data.forEach(element => {
             this.wishItems.push(element);
           });
@@ -102,7 +102,7 @@ export default {
     },
 
     deleteWish(productId, i) {
-      this.$axios.delete(`/wish/delete/item/${productId}/1`).then((res) => {
+      this.$axios.delete(`/api/wish/delete/item/${productId}/1`).then((res) => {
         this.$delete(this.wishItems, i);
       });
     }

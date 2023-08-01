@@ -155,13 +155,13 @@ export default {
 
   methods: {
     getProductDetail() {
-      this.$axios.get(`/product/get/detail/${this.productId}`).then((res) => {
+      this.$axios.get(`/api/product/get/detail/${this.productId}`).then((res) => {
         this.product = res.data.product;
         this.prevProductId = res.data.prevProduct;
         this.nextProductId = res.data.nextProduct;
       });
 
-      this.$axios.get(`/size/get/detail/${this.productId}`).then((res) => {
+      this.$axios.get(`/api/size/get/detail/${this.productId}`).then((res) => {
         res.data.forEach(element => {
           this.productSizes.push({
             size: element.size,
@@ -171,7 +171,7 @@ export default {
         });
       });
 
-      this.$axios.get(`/image/get/detail/${this.productId}`).then((res) => {
+      this.$axios.get(`/api/image/get/detail/${this.productId}`).then((res) => {
         res.data.forEach(element => {
           this.productImages.push({
             path: element,
@@ -180,13 +180,13 @@ export default {
         });
       });
 
-      this.$axios.get(`/feature/get/detail/${this.productId}`).then((res) => {
+      this.$axios.get(`/api/feature/get/detail/${this.productId}`).then((res) => {
         res.data.forEach(element => {
           this.productFeatures.push(element);
         });
       });
 
-      this.$axios.get(`/wish/get/${this.productId}/state/1`).then((res) => {
+      this.$axios.get(`/api/wish/get/${this.productId}/state/1`).then((res) => {
         this.isWish = res.data;
       });
     },
@@ -237,8 +237,8 @@ export default {
         return;
       }
 
-      this.$axios.get(`/product/get/${this.productId}`).then((product) => {
-        this.$axios.post("/cart/add", {customerId: 1, product: product.data, size: this.selectSize, quantity: this.inputQuantity}).then((res) => {
+      this.$axios.get(`/api/product/get/${this.productId}`).then((product) => {
+        this.$axios.post("/api/cart/add", {customerId: 1, product: product.data, size: this.selectSize, quantity: this.inputQuantity}).then((res) => {
           this.showSuccessTooltip = true;
 
           setTimeout(() => {
@@ -250,13 +250,13 @@ export default {
 
     toggleWish() {
       if(this.isWish) {
-        this.$axios.delete(`/wish/delete/item/${this.productId}/1`).then((res) => {
+        this.$axios.delete(`/api/wish/delete/item/${this.productId}/1`).then((res) => {
           this.isWish = false;
         });
       } else {
-        this.$axios.get("/customer/get/1").then((customer) => {
-          this.$axios.get(`/product/get/${this.productId}`).then((product) => {
-            this.$axios.post("/wish/add", {customer: customer.data, product: product.data}).then((res) => {
+        this.$axios.get("/api/customer/get/1").then((customer) => {
+          this.$axios.get(`/api/product/get/${this.productId}`).then((product) => {
+            this.$axios.post("/api/wish/add", {customer: customer.data, product: product.data}).then((res) => {
               this.isWish = true;
             });
           });

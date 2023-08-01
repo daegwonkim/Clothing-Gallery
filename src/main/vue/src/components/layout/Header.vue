@@ -53,8 +53,6 @@
 
 <script>
 export default {
-  name: "header",
-
   data() {
     return {
       toolbar_btn_list: [

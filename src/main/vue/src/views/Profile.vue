@@ -327,12 +327,12 @@ export default {
 
   methods: {
     getAccountInfo() {
-      this.$axios.get("/customer/get/1").then((res) => {
+      this.$axios.get("/api/customer/get/1").then((res) => {
         this.account = res.data;
         this.beforeAccount = JSON.parse(JSON.stringify(res.data));  // Deep copy
       });
 
-      this.$axios.get("/address/get/1").then((res) => {
+      this.$axios.get("/api/address/get/1").then((res) => {
         res.data.forEach(element => {
           this.addresses.push(element);
         });
@@ -409,10 +409,10 @@ export default {
       }
       
       if(this.mode == "add") {
-        this.$axios.post("/address/add", {customer: this.account, address: newAddress}).then((res) => {
+        this.$axios.post("/api/address/add", {customer: this.account, address: newAddress}).then((res) => {
           this.addresses = [];
 
-          this.$axios.get("/address/get/1").then((res) => {
+          this.$axios.get("/api/address/get/1").then((res) => {
             res.data.forEach(element => {
               this.addresses.push(element);
             });
@@ -420,7 +420,7 @@ export default {
         });
       } else {
         newAddress.id = this.curAddressId;
-        this.$axios.put("/address/edit", newAddress).then((res) => {
+        this.$axios.put("/api/address/edit", newAddress).then((res) => {
           this.$set(this.addresses, this.curAddressIndex, newAddress);
           this.mode = "add";
         });
@@ -443,7 +443,7 @@ export default {
     },
 
     removeAddress(id, i) {
-      this.$axios.delete(`/address/delete/${id}`).then((res) => {
+      this.$axios.delete(`/api/address/delete/${id}`).then((res) => {
         this.$delete(this.addresses, i);
       });
     },
@@ -472,7 +472,7 @@ export default {
 
     updateInfo() {
       if(this.$refs.accountForm.validate()) {
-        this.$axios.put("/customer/update", this.account).then((res) => {
+        this.$axios.put("/api/customer/update", this.account).then((res) => {
           this.account = res.data;
           this.beforeAccount = JSON.parse(JSON.stringify(res.data));  // Deep copy
 

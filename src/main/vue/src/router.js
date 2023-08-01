@@ -13,6 +13,7 @@ import Detail from "./views/Detail"
 import Cart from "./views/Cart"
 import Wish from "./views/Wish"
 import Profile from "./views/Profile"
+import Login from "./views/Login"
 
 Vue.use(VueRouter);
 
@@ -32,6 +33,7 @@ const router = new VueRouter({
         {path: "/cart", component: Cart},
         {path: "/wish", component: Wish},
         {path: "/profile", component: Profile},
+        {path: "/login", component: Login},
     ],
     scrollBehavior() {
         return { x: 0, y: 0 }

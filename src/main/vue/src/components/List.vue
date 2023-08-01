@@ -72,7 +72,7 @@ export default {
   methods: {
     // 상품 데이터 가져오기
     getData() {
-      this.$axios.get(`/product/get/list/item/${this.category}`).then((res) => {
+      this.$axios.get(`/api/product/get/list/item/${this.category}`).then((res) => {
         res.data.forEach((element) => {
           this.data.push({
             id: element.id,

@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@RequestMapping("product")
+@RequestMapping("/api/product")
 @RestController
 public class ProductApiController {
 

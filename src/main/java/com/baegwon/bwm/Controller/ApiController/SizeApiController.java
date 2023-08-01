@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@RequestMapping("size")
+@RequestMapping("/api/size")
 @RestController
 public class SizeApiController {
 

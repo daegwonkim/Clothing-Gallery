@@ -78,7 +78,7 @@ export default {
 
   methods: {
     getCartItems() {
-      this.$axios.get("/cart/get/item/1").then((res) => {
+      this.$axios.get("/api/cart/get/item/1").then((res) => {
         res.data.forEach(element => {
           this.productList.push({
             id: element.id,
@@ -110,7 +110,7 @@ export default {
     },
 
     deleteCartItem(i, id) {
-      this.$axios.delete(`/cart/delete/item/${id}`).then((res) => {
+      this.$axios.delete(`/api/cart/delete/item/${id}`).then((res) => {
         this.totalPrice -= this.productList[i].totalPrice;
         this.$delete(this.productList, i);
       });
