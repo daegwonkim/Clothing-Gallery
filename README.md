@@ -1,8 +1,8 @@
-# Baeg-won Clothing Gallery
+# Clothing Gallery
 
 ### 1. 프로젝트 개요
-- 프로젝트 명: Baeg-won Clothing Gallery
-- 개발 인원: 1명(Baeg-won)
+- 프로젝트 명: Clothing Gallery
+- 개발 인원: 1명
 - 개발 기간: 2023.07.01 ~
 - 주요 기능
   - 사용자 관련: 회원가입 및 로그인(OAuth2.0 포함), 회원가입 및 로그인 유효성 검사(+중복 검사), 회원 정보 수정, 회원 등급
