@@ -75,20 +75,6 @@
 
 <hr>
 
-### 4. 개발 내용
-1. [[Clothing Gallery] 0. 프로젝트 개요](https://daegwonkim.tistory.com/455)
-2. [[Clothing Gallery] 1. 메인 페이지 구현](https://daegwonkim.tistory.com/457)
-3. [[Clothing Gallery] 2. SHOP 페이지 구현](https://daegwonkim.tistory.com/458)
-4. [[Clothing Gallery] 3. BRANDS 페이지 구현](https://daegwonkim.tistory.com/459)
-5. [[Clothing Gallery] 4. CLOTHING, FOOTWEAR, ACCESSORIES 페이지 구현](https://daegwonkim.tistory.com/461)
-6. [[Clothing Gallery] 5. SALE, CONTACT 페이지 구현](https://daegwonkim.tistory.com/462)
-7. [[Clothing Gallery] 6. DETAIL 페이지 구현](https://daegwonkim.tistory.com/463)
-8. [[Clothing Gallery] 7. CART 페이지 구현](https://daegwonkim.tistory.com/465)
-9. [[Clothing Gallery] 8. WISH 페이지 구현](https://daegwonkim.tistory.com/467)
-10. [[Clothing Gallery] 9. PROFILE 페이지 구현](https://daegwonkim.tistory.com/468)
-
-<hr>
-
 ### 5. 실행 화면
 <details>
 <summary>메인 페이지</summary>
